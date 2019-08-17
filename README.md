@@ -8,6 +8,6 @@ step2: 将Angular2-Basic-Website\src覆盖掉Angular8Farmhouser\src
 step3: 运行npm start即可，如有未安装的package，使用命令npm install XX即可
 
 发布：
-ng  build --prod --base-href "https://grb2015.github.io/angular8Farmhouser/"
+ng build --prod --output-path docs --base-href  angular8Farmhouser
 
 
