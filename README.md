@@ -11,3 +11,7 @@ step3: 运行npm start即可，如有未安装的package，使用命令npm insta
 ng build --prod --output-path docs --base-href  angular8Farmhouser
 
 
+ng  build --prod --base-href "https://grb2015.github.io/angular8Farmhouser/"
+
+
+git remote add origin https://github.com/grb2015/angular8officalWeb.git
