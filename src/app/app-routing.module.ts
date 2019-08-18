@@ -12,8 +12,8 @@ import {HomeComponent} from "./home/home.component";
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: '/', component: HomeComponent },
-  { path: 'angular8Farmhouser/', component: HomeComponent },
-  { path: 'angular8Farmhouser', component: HomeComponent },
+  { path: 'angular8Farmhouser/', component: AboutComponent },
+  { path: 'angular8Farmhouser', component: AboutComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'about', component: AboutComponent },
