@@ -27,11 +27,12 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "8.3.0",
+    "@angular/cli": "6.0.8",
     "@angular/compiler-cli": "^4.0.0",
     "@types/hammerjs": "^2.0.36",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
+    "angular-cli-ghpages": "^0.6.0-rc.2",
     "codelyzer": "~2.0.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
