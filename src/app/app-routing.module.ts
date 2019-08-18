@@ -21,7 +21,6 @@ const routes: Routes = [
   // { path: '/angular8Farmhouser', component: AboutComponent },
   // { path: '/angular8Farmhouser/angular8Farmhouser/', component: AboutComponent },
   // { path: '/angular8Farmhouser/angular8Farmhouser', component: AboutComponent },
-
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'about', component: AboutComponent },
