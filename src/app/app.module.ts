@@ -11,11 +11,14 @@ import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PricingComponent } from './pricing/pricing.component';
+import { Login } from './login/login.component';
 import {RouterModule} from "@angular/router";
 import {routing} from "./app-routing.module";
 import { HomeComponent } from './home/home.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgxCarouselModule} from "ngx-carousel";
+import { LoginService } from "./login/login.services";
+import {UserAuth} from "./shareService/usreAuth.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {NgxCarouselModule} from "ngx-carousel";
     ServicesComponent,
     PortfolioComponent,
     PricingComponent,
-    HomeComponent
+    HomeComponent,
+    Login,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,10 @@ import {NgxCarouselModule} from "ngx-carousel";
     ReactiveFormsModule,
     NgxCarouselModule
   ],
-  providers: [],
+  providers: [
+    UserAuth,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

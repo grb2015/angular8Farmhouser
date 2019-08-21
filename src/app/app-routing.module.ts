@@ -8,9 +8,10 @@ import {ServicesComponent} from "./services/services.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 import {PricingComponent} from "./pricing/pricing.component";
 import {HomeComponent} from "./home/home.component";
+import {Login} from "./login/login.component";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: Login },
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'about', component: AboutComponent },
@@ -18,7 +19,9 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'pricing', component: PricingComponent },
-  { path: 'home', component: HomeComponent}
+  { path: 'home', component: HomeComponent},
+  { path: 'login', component: Login}
+  
 ];
 
 
