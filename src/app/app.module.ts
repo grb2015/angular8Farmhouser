@@ -12,6 +12,7 @@ import { ServicesComponent } from './services/services.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { Login } from './login/login.component';
+import { personsettingComponent } from './personsetting/personsetting.component';
 import {RouterModule} from "@angular/router";
 import {routing} from "./app-routing.module";
 import { HomeComponent } from './home/home.component';
@@ -32,6 +33,7 @@ import {UserAuth} from "./shareService/usreAuth.service";
     PricingComponent,
     HomeComponent,
     Login,
+    personsettingComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,9 +23,9 @@ export class Login implements OnInit {
   constructor(private router: Router, private fb: FormBuilder,private loginService: LoginService) {
       // private userAuth: UserAuth,private loginService: LoginService) {
     this.form = fb.group({
-      'userName': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'userName': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'passwords': fb.group({
-        'password': ['', Validators.compose([Validators.required, Validators.minLength(8)])],
+        'password': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       })
     });
 
@@ -57,10 +57,13 @@ export class Login implements OnInit {
               // 跳转到首页
               this.router.navigateByUrl("");
             }
+            else{
+              alert("用户名或密码不正确 !")
+            }
           },
           (error) => {
-            alert("用户名或密码不正确 !")
-            console.log("用户名或密码不正确 !")
+            console.log(" 登录出错,请检查网络正常且后端服务器已开启!")
+            alert(" 登录出错,请检查网络正常且后端服务器已开启!")
           },
           () => {
           }
