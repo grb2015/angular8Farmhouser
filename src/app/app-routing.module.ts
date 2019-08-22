@@ -10,6 +10,8 @@ import {PricingComponent} from "./pricing/pricing.component";
 import {HomeComponent} from "./home/home.component";
 import {Login} from "./login/login.component";
 import {personsettingComponent} from "./personsetting/personsetting.component";
+import { authenticatedService } from './shareService/authenticatedService';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,7 +24,7 @@ const routes: Routes = [
   { path: 'pricing', component: PricingComponent },
   { path: 'home', component: HomeComponent},
   { path: 'login', component: Login},
-  { path: 'personsetting', component: personsettingComponent}
+  { path: 'personsetting', component: personsettingComponent,canActivate: [authenticatedService] }
   
 ];
 

@@ -20,6 +20,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgxCarouselModule} from "ngx-carousel";
 import { LoginService } from "./login/login.services";
 import {UserAuth} from "./shareService/usreAuth.service";
+import {authenticatedService} from "./shareService/authenticatedService";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import {UserAuth} from "./shareService/usreAuth.service";
   ],
   providers: [
     UserAuth,
-    LoginService
+    LoginService,
+    authenticatedService
+
   ],
   bootstrap: [AppComponent]
 })
