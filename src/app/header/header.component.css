@@ -7,7 +7,7 @@
   }
   .user {
 	cursor: pointer;
-	width: 3%;
+	width:55%;
 	padding-right: 1%;
   }
 	
@@ -17,8 +17,8 @@
 	color: red;
 	margin: 2% 0% 0% -4%;
 	z-index: 999;
-	right: -588px;
-	top: -21px;
+	/* right: -588px;
+	top: -21px; */
   }
   /* 这里必须加!important，因为这个<a>标签是boostrap内置的样式 */
   .wordStyle{
