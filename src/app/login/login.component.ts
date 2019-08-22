@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from "./login.services";
 import 'style-loader!./login.scss';
+import { ConstValueService } from "../shareService/constValue.service"; 
 import { UserAuth } from "../shareService/usreAuth.service";
 // import { Md5 } from "ts-md5/dist/md5";
 import { Router } from "@angular/router";
@@ -55,9 +56,15 @@ export class Login implements OnInit {
             if (data.json().result === "success") {
               // this.userAuth.userGuid = data.json().userGuid;
               // 跳转到首页
-              this.router.navigateByUrl("");
+              ConstValueService.g_is_login_in = true;
+              console.log("####login sucess ConstValueService.g_is_login_in =")
+              console.log(ConstValueService.g_is_login_in)
+              this.router.navigateByUrl("home");
             }
             else{
+              ConstValueService.g_is_login_in = false;
+              console.log("####login fail ConstValueService.g_is_login_in =")
+              console.log(ConstValueService.g_is_login_in)
               alert("用户名或密码不正确 !")
             }
           },
