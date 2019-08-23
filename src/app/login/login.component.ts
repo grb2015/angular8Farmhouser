@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from "./login.services";
 import 'style-loader!./login.scss';
-import { ConstValueService } from "../shareService/constValue.service"; 
 import { UserAuth } from "../shareService/usreAuth.service";
 // import { Md5 } from "ts-md5/dist/md5";
 import { Router } from "@angular/router";
+import * as myGlobals from '../shareService/globals';
 declare var $: any;
 
 @Component({
@@ -21,8 +21,7 @@ export class Login implements OnInit {
   public passwords: FormGroup;
   public submitted: boolean = false;
 
-  constructor(private router: Router, private fb: FormBuilder,private loginService: LoginService) {
-      // private userAuth: UserAuth,private loginService: LoginService) {
+  constructor(private router: Router, private fb: FormBuilder,private loginService: LoginService,private userAuth: UserAuth) {
     this.form = fb.group({
       'userName': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'passwords': fb.group({
@@ -56,15 +55,15 @@ export class Login implements OnInit {
             if (data.json().result === "success") {
               // this.userAuth.userGuid = data.json().userGuid;
               // 跳转到首页
-              ConstValueService.g_is_login_in = true;
-              console.log("####login sucess ConstValueService.g_is_login_in =")
-              console.log(ConstValueService.g_is_login_in)
+              myGlobals.setLoginStatus(true);
+              console.log("####login sucess grbGlobals.g_is_login_in =")
+              console.log(myGlobals.g_is_login_in)
               this.router.navigateByUrl("home");
             }
             else{
-              ConstValueService.g_is_login_in = false;
-              console.log("####login fail ConstValueService.g_is_login_in =")
-              console.log(ConstValueService.g_is_login_in)
+              myGlobals.setLoginStatus(false);
+              console.log("####login fail grbGlobals.g_is_login_in =")
+              console.log(myGlobals.g_is_login_in)
               alert("用户名或密码不正确 !")
             }
           },
