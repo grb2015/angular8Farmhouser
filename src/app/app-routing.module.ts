@@ -9,9 +9,12 @@ import {PortfolioComponent} from "./portfolio/portfolio.component";
 import {PricingComponent} from "./pricing/pricing.component";
 import {HomeComponent} from "./home/home.component";
 import {Login} from "./login/login.component";
+import {personsettingComponent} from "./personsetting/personsetting.component";
+import { authenticatedService } from './shareService/authenticatedService';
+
 
 const routes: Routes = [
-  { path: '', component: Login },
+  { path: '', component: HomeComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'about', component: AboutComponent },
@@ -20,7 +23,8 @@ const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'pricing', component: PricingComponent },
   { path: 'home', component: HomeComponent},
-  { path: 'login', component: Login}
+  { path: 'login', component: Login},
+  { path: 'personsetting', component: personsettingComponent,canActivate: [authenticatedService] }
   
 ];
 

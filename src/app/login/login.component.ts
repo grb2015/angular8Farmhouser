@@ -5,6 +5,7 @@ import 'style-loader!./login.scss';
 import { UserAuth } from "../shareService/usreAuth.service";
 // import { Md5 } from "ts-md5/dist/md5";
 import { Router } from "@angular/router";
+import * as myGlobals from '../shareService/globals';
 declare var $: any;
 
 @Component({
@@ -20,12 +21,11 @@ export class Login implements OnInit {
   public passwords: FormGroup;
   public submitted: boolean = false;
 
-  constructor(private router: Router, private fb: FormBuilder,private loginService: LoginService) {
-      // private userAuth: UserAuth,private loginService: LoginService) {
+  constructor(private router: Router, private fb: FormBuilder,private loginService: LoginService,private userAuth: UserAuth) {
     this.form = fb.group({
-      'userName': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'userName': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'passwords': fb.group({
-        'password': ['', Validators.compose([Validators.required, Validators.minLength(8)])],
+        'password': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       })
     });
 
@@ -55,12 +55,21 @@ export class Login implements OnInit {
             if (data.json().result === "success") {
               // this.userAuth.userGuid = data.json().userGuid;
               // 跳转到首页
-              this.router.navigateByUrl("");
+              myGlobals.setLoginStatus(true);
+              console.log("####login sucess grbGlobals.g_is_login_in =")
+              console.log(myGlobals.g_is_login_in)
+              this.router.navigateByUrl("home");
+            }
+            else{
+              myGlobals.setLoginStatus(false);
+              console.log("####login fail grbGlobals.g_is_login_in =")
+              console.log(myGlobals.g_is_login_in)
+              alert("用户名或密码不正确 !")
             }
           },
           (error) => {
-            alert("用户名或密码不正确 !")
-            console.log("用户名或密码不正确 !")
+            console.log(" 登录出错,请检查网络正常且后端服务器已开启!")
+            alert(" 登录出错,请检查网络正常且后端服务器已开启!")
           },
           () => {
           }

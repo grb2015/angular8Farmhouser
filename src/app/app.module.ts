@@ -12,6 +12,7 @@ import { ServicesComponent } from './services/services.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { Login } from './login/login.component';
+import { personsettingComponent } from './personsetting/personsetting.component';
 import {RouterModule} from "@angular/router";
 import {routing} from "./app-routing.module";
 import { HomeComponent } from './home/home.component';
@@ -19,6 +20,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgxCarouselModule} from "ngx-carousel";
 import { LoginService } from "./login/login.services";
 import {UserAuth} from "./shareService/usreAuth.service";
+import {authenticatedService} from "./shareService/authenticatedService";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import {UserAuth} from "./shareService/usreAuth.service";
     PricingComponent,
     HomeComponent,
     Login,
+    personsettingComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,9 @@ import {UserAuth} from "./shareService/usreAuth.service";
   ],
   providers: [
     UserAuth,
-    LoginService
+    LoginService,
+    authenticatedService
+
   ],
   bootstrap: [AppComponent]
 })
