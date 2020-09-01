@@ -6,6 +6,7 @@ import { UserAuth } from "../shareService/usreAuth.service";
 // import { Md5 } from "ts-md5/dist/md5";
 import { Router } from "@angular/router";
 import * as myGlobals from '../shareService/globals';
+import {CacheService} from "../shareService/cache.service";
 declare var $: any;
 
 @Component({
@@ -21,7 +22,7 @@ export class Login implements OnInit {
   public passwords: FormGroup;
   public submitted: boolean = false;
 
-  constructor(private router: Router, private fb: FormBuilder,private loginService: LoginService,private userAuth: UserAuth) {
+  constructor(private cache: CacheService,private router: Router, private fb: FormBuilder,private loginService: LoginService,private userAuth: UserAuth) {
     this.form = fb.group({
       'userName': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'passwords': fb.group({
@@ -37,7 +38,11 @@ export class Login implements OnInit {
   }
 
   ngOnInit() {
-    console.log("login init ")
+    this.cache.printAllcache();
+    if (this.cache.getCache(this.cache._isLogin)) {
+      console.log("已登陆");
+      this.router.navigateByUrl("/home");
+    }
   }
 
   public onSubmit(): void {
@@ -55,7 +60,8 @@ export class Login implements OnInit {
             if (data.json().result === "success") {
               // this.userAuth.userGuid = data.json().userGuid;
               // 跳转到首页
-              myGlobals.setLoginStatus(true);
+              // myGlobals.setLoginStatus(true); 
+              this.cache.setCache(this.cache._isLogin, true);
               console.log("####login sucess grbGlobals.g_is_login_in =")
               console.log(myGlobals.g_is_login_in)
               this.router.navigateByUrl("home");

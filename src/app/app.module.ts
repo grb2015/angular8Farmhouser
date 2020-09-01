@@ -21,6 +21,7 @@ import {NgxCarouselModule} from "ngx-carousel";
 import { LoginService } from "./login/login.services";
 import {UserAuth} from "./shareService/usreAuth.service";
 import {authenticatedService} from "./shareService/authenticatedService";
+import {CacheService} from "./shareService/cache.service";
 
 @NgModule({
   declarations: [
@@ -47,8 +48,8 @@ import {authenticatedService} from "./shareService/authenticatedService";
   providers: [
     UserAuth,
     LoginService,
-    authenticatedService
-
+    authenticatedService,
+    CacheService
   ],
   bootstrap: [AppComponent]
 })
