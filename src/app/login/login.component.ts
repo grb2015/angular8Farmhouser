@@ -7,6 +7,7 @@ import { UserAuth } from "../shareService/usreAuth.service";
 import { Router } from "@angular/router";
 import * as myGlobals from '../shareService/globals';
 import {CacheService} from "../shareService/cache.service";
+import {Md5} from "ts-md5";
 declare var $: any;
 
 @Component({
@@ -49,8 +50,8 @@ export class Login implements OnInit {
     if (this.form.valid) {
       let temp = { type: "login" };
       temp["userName"] = this.delete_space(this.userName.value);
-      // temp["password"] = Md5.hashStr(this.password.value).toString();
-      temp["password"] = this.password.value
+      temp["password"] = Md5.hashStr(this.password.value).toString();
+      // temp["password"] = this.password.value
       this.submitted = true;
       if (this.form.valid) {
         this.loginService.login(temp).subscribe(
