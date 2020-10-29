@@ -7,7 +7,7 @@ import { Http, Headers } from "@angular/http";
 @Injectable()
 export class LoginService {
 
-    private loginUrl = ConstValueService.newSeedapiUrl + "/hotel/login/";
+    private loginUrl = ConstValueService.newSeedapiUrl + "/login/";
 
     constructor(private _http: Http) { }
 
