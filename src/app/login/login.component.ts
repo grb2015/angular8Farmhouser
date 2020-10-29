@@ -58,7 +58,7 @@ export class Login implements OnInit {
           (data) => {
             console.log("data.json().result")
             console.log(data.json().result)
-            if (data.json().result === "success") {
+            if (data.json().result) {
               // this.userAuth.userGuid = data.json().userGuid;
               // 跳转到首页
               // myGlobals.setLoginStatus(true); 
