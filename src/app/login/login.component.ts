@@ -46,7 +46,7 @@ export class Login implements OnInit {
     }
   }
 
-  public onSubmit(): void {
+  public onSubmitLogin(): void {
     if (this.form.valid) {
       let temp = { type: "login" };
       temp["userName"] = this.delete_space(this.userName.value);

@@ -1,7 +1,7 @@
 <div class="auth-main" #authMain>
 
   <div class="auth-block">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-horizontal">
+    <form [formGroup]="form" (ngSubmit)="onSubmitLogin()" class="form-horizontal">
       <!-- <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal"> -->
       <div class="form-group row" [ngClass]="{'has-error': (!userName.valid && userName.touched), 'has-success': (userName.valid && userName.touched)}">
         <label for="idusername" class="col-sm-2 control-label">用户名</label>
