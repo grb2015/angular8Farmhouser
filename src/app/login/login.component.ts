@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { LoginService } from "./login.services";
+import {httpservice } from "../shareService/httpsevice";
 import 'style-loader!./login.scss';
 import { UserAuth } from "../shareService/usreAuth.service";
 // import { Md5 } from "ts-md5/dist/md5";
@@ -23,7 +23,7 @@ export class Login implements OnInit {
   public passwords: FormGroup;
   public submitted: boolean = false;
 
-  constructor(private cache: CacheService,private router: Router, private fb: FormBuilder,private loginService: LoginService,private userAuth: UserAuth) {
+  constructor(private cache: CacheService,private router: Router, private fb: FormBuilder,private backendApi: httpservice,private userAuth: UserAuth) {
     this.form = fb.group({
       'userName': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'passwords': fb.group({
@@ -54,7 +54,7 @@ export class Login implements OnInit {
       // temp["password"] = this.password.value
       this.submitted = true;
       if (this.form.valid) {
-        this.loginService.login(temp).subscribe(
+        this.backendApi.login(temp).subscribe(
           (data) => {
             console.log("data.json().result")
             console.log(data.json().result)
